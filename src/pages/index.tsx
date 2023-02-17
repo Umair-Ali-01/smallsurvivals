@@ -1,32 +1,37 @@
-import * as React from "react";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import Link from "../Link";
-import ProTip from "../ProTip";
-import Copyright from "../Copyright";
+import React from "react";
+import dynamic from "next/dynamic";
+import { NextPageWithLayout } from "../interfaces/layout";
+import { MainLayout } from "../components/layout";
+// import { HomeFeature, HomeHero, HomePopularCourse, HomeTestimonial, HomeOurMentors, DynamicHomeNewsLetter } from '@/components/home'
 
-export default function Home() {
+const DynamicHomeHero = dynamic(() => import("../components/home/hero"));
+const DynamicHomeFeature = dynamic(() => import("../components/home/feature"));
+const DynamicHomePopularCourse = dynamic(
+  () => import("../components/home/popular-courses")
+);
+const DynamicHomeTestimonial = dynamic(
+  () => import("../components/home/testimonial")
+);
+const DynamicHomeOurMentors = dynamic(
+  () => import("../components/home/mentors")
+);
+const DynamicHomeNewsLetter = dynamic(
+  () => import("../components/home/newsletter")
+);
+
+const Home: NextPageWithLayout = () => {
   return (
-    <Container maxWidth="lg">
-      <Box
-        sx={{
-          my: 4,
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Typography variant="h4" component="h1" gutterBottom>
-          MUI v5 + Next.js with TypeScript example
-        </Typography>
-        <Link href="/about" color="secondary">
-          Go to the about page
-        </Link>
-        <ProTip />
-        <Copyright />
-      </Box>
-    </Container>
+    <>
+      <DynamicHomeHero />
+      <DynamicHomePopularCourse />
+      <DynamicHomeFeature />
+      <DynamicHomeTestimonial />
+      <DynamicHomeOurMentors />
+      <DynamicHomeNewsLetter />
+    </>
   );
-}
+};
+
+Home.getLayout = (page) => <MainLayout>{page}</MainLayout>;
+
+export default Home;
