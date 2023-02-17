@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import Link from "next/link";
 import Grid from "@mui/material/Grid";
 import MuiLink from "@mui/material/Link";
-import type { Navigation } from "@/interfaces/navigation";
+import type { Navigation } from "../../interfaces/navigation";
 import { navigations as headerNavigations } from "../navigation/navigation.data";
 import { FooterSectionTitle } from "../footer";
 

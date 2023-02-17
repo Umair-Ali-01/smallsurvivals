@@ -1,4 +1,4 @@
-import type { Course } from '@/interfaces/course'
+import type { Course } from '../../interfaces/course'
 
 export const data: Array<Course> = [
   {

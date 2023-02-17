@@ -1,4 +1,4 @@
-import type { Mentor } from '@/interfaces/mentor'
+import type { Mentor } from '../../interfaces/mentor'
 
 export const data: Array<Mentor> = [
   {
